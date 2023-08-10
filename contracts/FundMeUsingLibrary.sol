@@ -20,6 +20,7 @@ contract FundMeUsingLibrary {
     function fund() public payable {
         //Want to be able to set a minimun fund amount in USD
         //1. How do wo send ETH to this contract?
+        //注意msg.value.getConversionRate()的用法
         require(msg.value.getConversionRate() >= minimumUsd, "Didn't send enough");
         funders.push(msg.sender);
         addressToAmountFunded[msg.sender] = msg.value;
