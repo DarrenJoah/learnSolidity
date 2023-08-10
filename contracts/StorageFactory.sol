@@ -3,6 +3,7 @@ pragma solidity ^0.8.0;
 
 import "./SimpleStorage.sol";
 
+//与合约进行交互
 contract StorageFactory {
     SimpleStorage[] public simpleStorageArray;
 
