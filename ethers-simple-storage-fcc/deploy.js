@@ -1,4 +1,4 @@
-const ethers = require("ethers");
+E
 const fs = require("fs-extra");
 
 /**
