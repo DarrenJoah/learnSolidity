@@ -1,4 +1,4 @@
-E
+const ethers = require("ethers");
 const fs = require("fs-extra");
 
 /**
@@ -22,7 +22,9 @@ async function main() {
   );
   const contractFactory = new ethers.ContractFactory(abi, binary, wallet);
   console.log("Deploying,please wait...");
-  const contract = await contractFactory.deploy(); //Stop here! Wait for contract to deploy!
+  const contract = await contractFa;
+
+  ctory.deploy(); //Stop here! Wait for contract to deploy!
   const transcationReceipt = await contract.deployTransaction.wait(1);
   console.log("Here is the deployment transcation(transcation response)：");
   console.log(contract.deployTransaction);
