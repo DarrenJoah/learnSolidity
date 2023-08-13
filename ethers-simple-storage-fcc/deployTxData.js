@@ -1,5 +1,6 @@
 const ethers = require("ethers");
 const fs = require("fs-extra");
+require("dotenv").config();
 
 /**
  *
@@ -8,7 +9,8 @@ const fs = require("fs-extra");
  * 该做法只是为了方便理解原理,ethers和hardhat将会很容易
  */
 
-const privateKey = process.env.GANACHE_PRIVATE_KEY;
+const privateKey = process.env.PRIVATE_KEY;
+
 async function main() {
   //ganache运行的区块链的rpc server:http://127.0.0.1:7545
   //连接到本地区块链

@@ -1,5 +1,6 @@
 const ethers = require("ethers");
 const fs = require("fs-extra");
+require("dotenv").config();
 
 /**
  *
@@ -7,7 +8,7 @@ const fs = require("fs-extra");
  * Description: 创建工厂合约后，使用工厂合约部署SimpleStorage合约到本地的Ganache工具的以太坊测试网络
  */
 
-const privateKey = process.env.GANACHE_PRIVATE_KEY;
+const privateKey = process.env.PRIVATE_KEY;
 async function main() {
   //ganache运行的区块链的rpc server:http://127.0.0.1:7545
   //连接到本地区块链
@@ -22,9 +23,8 @@ async function main() {
   );
   const contractFactory = new ethers.ContractFactory(abi, binary, wallet);
   console.log("Deploying,please wait...");
-  const contract = await contractFa;
+  const contract = await contractFactory.deploy(); //Stop here! Wait for contract to deploy!
 
-  ctory.deploy(); //Stop here! Wait for contract to deploy!
   const transcationReceipt = await contract.deployTransaction.wait(1);
   console.log("Here is the deployment transcation(transcation response)：");
   console.log(contract.deployTransaction);
