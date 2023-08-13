@@ -5,8 +5,10 @@ require("dotenv").config();
 /**
  *
  * Date:2023-08-13
- * Description: 通过ether.js发送raw(原始)交易：指定交易信息(数据)创建一个合约，但是以后不会使用这种方法创建交易
- * 该做法只是为了方便理解原理,ethers和hardhat将会很容易
+ * Description: 通过ether.js与合约进行交互（调用合约中的方法）
+ * 调用store()方法、retrieve() 方法
+ * BigNumber官方文档：
+  https://docs.ethers.org/v5/api/utils/bignumber/
  */
 
 const privateKey = process.env.PRIVATE_KEY;
