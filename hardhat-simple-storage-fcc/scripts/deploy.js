@@ -1,4 +1,6 @@
 const { ethers, run, network } = require("hardhat");
+require("dotenv").config();
+
 
 
 async function main() {
@@ -7,7 +9,6 @@ async function main() {
   const simpleStorage = await SimpleStorageFactory.deploy()
   await simpleStorage.deployed()
   console.log(`Deploy contract to: ${simpleStorage.address}`)
-  //console.log(network.config)
   //4==4 true
   //4 == "4" true
   //4 === "4" false ,===不会进行类型转换
@@ -15,6 +16,16 @@ async function main() {
     await simpleStorage.deployTransaction.wait(6)
     await verify(simpleStorage.address, [])
   }
+
+  const currentValue = await simpleStorage.retrieve()
+  console.log(`Current value is: ${currentValue}`)
+
+  //Update the current value
+  const transactionResponse = await simpleStorage.store(7)
+  await transactionResponse.wait(1)
+  const updatedValue = await simpleStorage.retrieve()
+  console.log(`Updated value is: ${updatedValue}`)
+
 }
 
 //验证合约的函数
